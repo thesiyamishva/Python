@@ -69,19 +69,19 @@ python main.py
 ```text
 Welcome to the first project of my course AI/ML Data science
 
-Enter your name : John
-Enter your age : 20
-Enter your height in meters : 1.75
-Enter your favourite number : 7
+Enter your name : Mishva
+Enter your age : 19
+Enter your height in meters : 1.5
+Enter your favourite number : 8
 
 Thank you giving me your details, the information we collected is :
 
-Name is : John Data type is : <class 'str'> Memory Address is : 140123456789
-Age is : 20 Data type is : <class 'int'> Memory Address is : 140123456700
-Height is : 1.75 Data type is : <class 'float'> Memory Address is : 140123456800
-Favourite Number is : 7 Data type is : <class 'int'> Memory Address is : 140123456900
+Name is : Mishva Data type is : <class 'str'> Memory Address is : 133184465410912
+Age is : 19 Data type is : <class 'int'> Memory Address is : 133184478446888
+Height is : 1.5 Data type is : <class 'float'> Memory Address is : 133184468041552
+Favourite Number is : 8 Data type is : <class 'int'> Memory Address is : 133184478446504
 
-Your Birthyear is approximately : 2006
+Your Birthyear is approximately : 2007
 
 Thank you for using the personal data collector. Have a good day!
 ```
