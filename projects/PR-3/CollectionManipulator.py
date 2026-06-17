@@ -1,9 +1,9 @@
-print("WELCOME TO STUDENT DATA ORGANIZER")
+print("Welcome To Student Data Organizer")
 
 Student = []
 
 while True:
-    print("\nSelect an option :\n")
+    print("\n Select an option :\n")
     print("1. Add Student")
     print("2. Display All Students")
     print("3. Update Student Information")
@@ -11,12 +11,12 @@ while True:
     print("5. Display Subjects Offered")
     print("6. Exit")
 
-    choice = int(input("\nEnter your choice : "))
+    choice = int(input("\n Enter your choice : "))
 
     match choice:
 
         case 1:
-            print("\nEnter Student Details")
+            print("\n Enter Student Details")
 
             st = {
                 "Student Id": len(Student) + 1,
@@ -29,13 +29,13 @@ while True:
 
             Student.append(st)
 
-            print("\nStudent Added Successfully!")
+            print("\n Student Added Successfully!")
 
         case 2:
             if len(Student) == 0:
-                print("\nNo Student Records Found!")
+                print("\n No Student Records Found!")
             else:
-                print("\nStudent Records:\n")
+                print("\n Student Records:\n")
 
                 for st in Student:
                     print(
@@ -63,11 +63,11 @@ while True:
                         input("Enter New Subjects (comma-separated) : ").split(",")
                     )
 
-                    print("\nStudent Record Updated Successfully!")
+                    print("\n Student Record Updated Successfully!")
                     break
 
             if found == False:
-                print("\nSorry! Student Id not found!")
+                print("\n Sorry! Student Id not found!")
 
         case 4:
             delid = int(input("Enter Student Id to Delete : "))
@@ -78,11 +78,11 @@ while True:
                     Student.remove(st)
                     found = True
 
-                    print("\nStudent Record Deleted Successfully!")
+                    print("\n Student Record Deleted Successfully!")
                     break
 
             if found == False:
-                print("\nSorry! Student Id not found!")
+                print("\n Sorry! Student Id not found!")
 
         case 5:
             all_subjects = set()
@@ -98,9 +98,9 @@ while True:
                     print(subject)
 
         case 6:
-            print("\nThank you for using Student Data Organizer. Goodbye!")
+            print("\n Thank you for using Student Data Organizer. Goodbye!")
             break
 
        
         case _:
-            print("\nInvalid Choice! Please enter a number between 1 and 6.")
+            print("\n Invalid Choice! Please enter a number between 1 and 6.")
