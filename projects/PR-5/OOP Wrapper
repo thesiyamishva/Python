@@ -1,0 +1,124 @@
+print("--- python OOP project: Employee Management System ---\n")
+ 
+class Employee:
+    def __init__(self, name, age, employee_id, salary):
+        self._name = name
+        self._age = age
+        self._employee_id = employee_id
+        self._salary = salary
+
+    def showInfo(self):
+        print(f"Employee created with Name : {self._name}, Age : {self._age}, Employee ID : {self._employee_id} and Salary : {self._salary}\n")
+
+    def __del__(self):  
+        pass
+
+class Manager(Employee):
+    def __init__(self, name, age, employee_id, salary, department):
+        super().__init__(name, age, employee_id, salary)
+        self._department = department
+
+    def showInfo(self):
+        
+        print(f"Manager created with Name : {self._name}, Age : {self._age}, Employee ID : {self._employee_id} , Salary : {self._salary} and Department : {self._department}\n")
+
+    def __del__(self):
+        pass
+
+class Developer(Employee):
+    def __init__(self, name, age, employee_id, salary, programming):
+        super().__init__(name, age, employee_id, salary)
+        self._programming = programming     
+
+    def showInfo(self):
+        
+        print(f"The Developer created with Name : {self._name}, Age : {self._age}, Employee ID : {self._employee_id} Salary : {self._salary} and Programming : {self._programming} \n")
+
+    def __del__(self):
+        pass
+
+emp = []
+man = []
+dev = []
+
+while True:
+
+    print("Choose an operation:")
+    print("1. Create an Employee")
+    print("2. Create a Manager")
+    print("3. Create a Developer")
+    print("4. Show Details")
+    print("5. Exit")
+
+    choice = int(input("\nEnter your choice: "))
+
+    if choice==1:
+        name = input("\nEnter Name :")
+        age = input("Enter Age :")
+        employee_id = input("Enter Employee_id :")
+        salary = input("Enter Salary :")
+
+        eobj = Employee(name, age, employee_id, salary)
+
+        emp.append(eobj)
+
+        eobj.showInfo()
+
+    elif choice==2:
+        
+        name = input("Enter emp name :")
+        age = input("Enter emp age :")
+        employee_id = input("Enter emp employee_id :")
+        salary = input("Enter emp salary :")
+        dname = input("Enter Manager department name :")
+
+        mobj = Manager(name, age, employee_id, salary, dname)
+
+        man.append(mobj)
+
+        mobj.showInfo()
+
+    elif choice==3:
+
+        name = input("Enter emp name :")
+        age = input("Enter emp age :")
+        employee_id = input("Enter emp employee_id :")
+        salary = input("Enter emp salary :")
+        pname = input("Enter Developer programming name :")
+
+        dobj = Developer(name, age, employee_id, salary, pname)
+
+        dev.append(dobj)
+
+        dobj.showInfo()
+
+    elif choice==4:
+        print("Choose detail to show: ")
+        print("1. Employee")
+        print("2. Manager")
+        print("3. Developer")
+                
+        subCh = int(input("Enter your choice: "))
+                
+        if subCh==1:
+            for em in emp:
+                em.showInfo()
+
+        elif subCh==2:
+            for em in man:
+                em.showInfo()
+
+        elif subCh==3:
+            for em in dev:
+                em.showInfo()
+
+        else:
+            print("\nInvalid !\n")
+
+    elif choice==5:
+
+        print("\n Exiting the system. All resources have been freed.")
+        break
+
+    else:
+        print("\nInvalid !")
