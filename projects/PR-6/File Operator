@@ -1,0 +1,128 @@
+
+from datetime import datetime
+
+class JournalManager:
+    def __init__(self, filename="journal.txt"):
+        self.filename = filename
+
+    def add_entry(self):
+        entry = input("\nEnter your journal entry:\n")
+
+        timestamp = datetime.now().strftime("[%Y-%m-%d %H:%M:%S]")
+
+        try:
+            with open(self.filename, "a") as file:
+                file.write(f"{timestamp}\n")
+                file.write(entry + "\n")
+                file.write("-" * 50 + "\n")
+
+            print("\nEntry added successfully!")
+
+        except PermissionError:
+            print("Permission denied.")
+        except Exception as e:
+            print("Error:", e)
+
+    def view_entries(self):
+        print("\n----- View All Entries -----")
+
+        try:
+            with open(self.filename, "r") as file:
+                data = file.read()
+
+                if data.strip() == "":
+                    print("Journal is empty.")
+                else:
+                    print(data)
+
+        except FileNotFoundError:
+            print("The journal file dose not exit. Please add a new entry first.")
+        except Exception as e:
+            print("Error:", e)
+
+    def search_entry(self):
+        print("\n----- Search Entry -----")
+        keyword = input("Enter keyword or date to search: ")
+
+        try:
+            with open(self.filename, "r") as file:
+                lines = file.readlines()
+
+            found = False
+
+            for line in lines:
+                if keyword.lower() in line.lower():
+                    if not found:
+                        print("\nMatching Entries:\n")
+                    print(line.strip())
+                    found = True
+
+            if not found:
+                print("No entries found for the keyword:", keyword)
+
+        except FileNotFoundError:
+            print("Journal file not found.")
+        except Exception as e:
+            print("Error:", e)
+
+    def delete_entries(self):
+        print("\n----- Delete All Entries -----")
+
+        choice = input("Are you sure? (yes/no): ")
+
+        if choice.lower() == "yes":
+            try:
+                open(self.filename, "w").close()
+                print("All journal entries deleted successfully!")
+
+            except PermissionError:
+                print("Permission denied.")
+
+            except Exception as e:
+                print("Error:", e)
+
+        else:
+            print("Deletion cancelled.")
+
+    def menu(self):
+
+        while True:
+
+            print("\nWelcome to Personal Journal Manager !")
+            print("please select an option:\n")
+            print("1. Add New Entry")
+            print("2. View All Entries")
+            print("3. Search for an Entry")
+            print("4. Delete All Entries")
+            print("5. Exit")
+
+            try:
+                choice = int(input("\nUser Input: \n"))
+
+                if choice == 1:
+                    self.add_entry()
+
+                elif choice == 2:
+                    self.view_entries()
+
+                elif choice == 3:
+                    self.search_entry()
+
+                elif choice == 4:
+                    self.delete_entries()
+
+                elif choice == 5:
+                    print("\nThank you for using Personal Journal Manager. Goodbye!")
+                    break
+
+                else:
+                    print("\nInvalid choice! Please select a valid option from the menu..")
+
+            except ValueError:
+                print("Please enter a valid number.")
+            except Exception as e:
+                print("Unexpected Error:", e)
+
+if __name__ == "__main__":
+    journal = JournalManager()
+    journal.menu()
