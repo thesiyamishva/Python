@@ -1,0 +1,493 @@
+from datetime import datetime
+import time
+import math
+import random
+import string
+import uuid
+import os
+
+FILENAME = "sample.txt"
+
+
+# ---------------- DATETIME MODULE ----------------
+
+def display_current_datetime():
+    now = datetime.now()
+    print("\nCurrent Date and Time :", now.strftime("%Y-%m-%d %H:%M:%S"))
+
+
+def date_difference():
+    try:    
+        d1 = input("Enter First Date (YYYY-MM-DD): ")
+        d2 = input("Enter Second Date (YYYY-MM-DD): ")
+
+        date1 = datetime.strptime(d1, "%Y-%m-%d")
+        date2 = datetime.strptime(d2, "%Y-%m-%d")
+
+        print("Difference :", abs((date2-date1).days), "days")
+
+    except ValueError:
+        print("Invalid Date!")
+
+
+def format_date():
+    try:
+        d = input("Enter Date (YYYY-MM-DD): ")
+        date = datetime.strptime(d, "%Y-%m-%d")
+
+        print("\n1. DD/MM/YYYY")
+        print("2. Month DD, YYYY")
+        print("3. Day Month YYYY")
+
+        ch = input("Choice : ")
+
+        match ch:
+            case "1":
+                print(date.strftime("%d/%m/%Y"))
+
+            case "2":
+                print(date.strftime("%B %d, %Y"))
+
+            case "3":
+                print(date.strftime("%A %d %B %Y"))
+
+            case _:
+                print("Invalid Choice")
+
+    except ValueError:
+        print("Invalid Date")
+
+
+def stopwatch():
+    input("Press ENTER to Start...")
+    start = time.time()
+
+    input("Press ENTER to Stop...")
+    end = time.time()
+
+    print("Elapsed Time :", round(end-start,2), "seconds")
+
+
+def countdown():
+    try:
+        sec = int(input("Enter Seconds : "))
+
+        while sec>0:
+            print(sec)
+            time.sleep(1)
+            sec -= 1
+
+        print("Time's Up!")
+
+    except ValueError:
+        print("Invalid Input")
+
+
+def datetime_menu():
+
+    while True:
+
+        print("\nDatetime and Time Operations :")
+        print("1. Display Current Date & Time")
+        print("2. Calculate Difference Between two Dates/times")
+        print("3. Format Date into custom format")
+        print("4. Stopwatch")
+        print("5. Countdown Timer")
+        print("6. Back to Main Menu")
+
+        choice = input("Enter Your Choice : ")
+
+        match choice:
+
+            case "1":
+                display_current_datetime()
+
+            case "2":
+                date_difference()
+
+            case "3":
+                format_date()
+
+            case "4":
+                stopwatch()
+
+            case "5":
+                countdown()
+
+            case "6":
+                break
+
+            case _:
+                print("Invalid Choice")
+
+# ---------------- MATH MODULE ----------------
+
+def factorial():
+    try:
+        num = int(input("Enter a Number : "))
+        print("Factorial :", math.factorial(num))
+    except ValueError:
+        print("Invalid Input")
+
+
+def compound_interest():
+    try:
+        p = float(input("Principal : "))
+        r = float(input("Rate (%) : "))
+        t = float(input("Time (Years) : "))
+
+        amount = p * ((1 + r / 100) ** t)
+        ci = amount - p
+
+        print("Compound Interest :", round(ci, 2))
+        print("Total Amount :", round(amount, 2))
+
+    except ValueError:
+        print("Invalid Input")
+
+
+def trigonometry():
+    try:
+        degree = float(input("Enter Angle : "))
+        rad = math.radians(degree)
+
+        print("Sin :", round(math.sin(rad), 4))
+        print("Cos :", round(math.cos(rad), 4))
+        print("Tan :", round(math.tan(rad), 4))
+
+    except ValueError:
+        print("Invalid Input")
+
+
+def area():
+    while True:
+
+        print("\nArea Menu")
+        print("1. Circle")
+        print("2. Rectangle")
+        print("3. Triangle")
+        print("4. Back")
+
+        ch = input("Choice : ")
+
+        match ch:
+
+            case "1":
+                r = float(input("Radius : "))
+                print("Area :", round(math.pi * r * r, 2))
+
+            case "2":
+                l = float(input("Length : "))
+                b = float(input("Breadth : "))
+                print("Area :", l * b)
+
+            case "3":
+                b = float(input("Base : "))
+                h = float(input("Height : "))
+                print("Area :", (b * h) / 2)
+
+            case "4":
+                break
+
+            case _:
+                print("Invalid Choice")
+
+
+def math_menu():
+
+    while True:
+
+        print("\nMathematical Operations :")
+        print("1. Calculate Factorial")
+        print("2. Solve Compound Interest")
+        print("3. Trigonometric Calculations")
+        print("4. Area of Geometric Shapes")
+        print("5. Back to Main Menu")
+
+        ch = input("Enter Your Choice: ")
+
+        match ch:
+
+            case "1":
+                factorial()
+
+            case "2":
+                compound_interest()
+
+            case "3":
+                trigonometry()
+
+            case "4":
+                area()
+
+            case "5":
+                break
+
+            case _:
+                print("Invalid Choice")
+
+
+# ---------------- RANDOM MODULE ----------------
+
+def generate_random_number():
+    print("Random Number :", random.randint(1, 100))
+
+
+def generate_random_list():
+    numbers = [random.randint(1, 100) for _ in range(10)]
+    print(numbers)
+
+
+def generate_password():
+    length = int(input("Password Length : "))
+
+    chars = string.ascii_letters + string.digits + string.punctuation
+
+    password = "".join(random.choice(chars) for _ in range(length))
+
+    print("Password :", password)
+
+
+def generate_otp():
+    print("OTP :", random.randint(100000, 999999))
+
+
+def random_menu():
+
+    while True:
+
+        print("\nRandom Data Generation")
+        print("1. Generate Random Number")
+        print("2. Generate Random List")
+        print("3. Create Random Password")
+        print("4. Generate Random OTP")
+        print("5. Back to Main Menu")
+
+        ch = input("Enter Your Choice : ")
+
+        match ch:
+
+            case "1":
+                generate_random_number()
+
+            case "2":
+                generate_random_list()
+
+            case "3":
+                generate_password()
+
+            case "4":
+                generate_otp()
+
+            case "5":
+                break
+
+            case _:
+                print("Invalid Choice")
+
+
+# ---------------- UUID MODULE ----------------
+
+def uuid_menu():
+
+    while True:
+
+        print("\nGenerate Unique Identifiers:")
+        print("1. UUID Version 1")
+        print("2. UUID Version 4")
+        print("3. Multiple UUID")
+        print("4. Back")
+
+        ch = input("Choice : ")
+
+        match ch:
+
+            case "1":
+                print(uuid.uuid1())
+
+            case "2":
+                print(uuid.uuid4())
+
+            case "3":
+                n = int(input("How Many : "))
+                for i in range(n):
+                    print(uuid.uuid4())
+
+            case "4":
+                break
+
+            case _:
+                print("Invalid Choice")
+                
+# ---------------- FILE MODULE ----------------
+
+def create_file():
+    with open(FILENAME, "w") as f:
+        f.write("Welcome to Multi Utility Toolkit\n")
+    print("File Created Successfully.")
+
+
+def read_file():
+    if os.path.exists(FILENAME):
+        with open(FILENAME, "r") as f:
+            print("\nFile Content:\n")
+            print(f.read())
+    else:
+        print("File Not Found.")
+
+
+def append_file():
+    if os.path.exists(FILENAME):
+        text = input("Enter Text : ")
+        with open(FILENAME, "a") as f:
+            f.write(text + "\n")
+        print("Text Appended Successfully.")
+    else:
+        print("File Not Found.")
+
+
+def delete_file():
+    if os.path.exists(FILENAME):
+        os.remove(FILENAME)
+        print("File Deleted Successfully.")
+    else:
+        print("File Not Found.")
+
+
+def file_info():
+    if os.path.exists(FILENAME):
+        print("File Name :", FILENAME)
+        print("Size :", os.path.getsize(FILENAME), "bytes")
+        print("Path :", os.path.abspath(FILENAME))
+    else:
+        print("File Not Found.")
+
+
+def file_menu():
+
+    while True:
+
+        print("\nFile Operations :")
+        print("1. Create a new File")
+        print("2. Read from a File")
+        print("3. Append to a File")
+        print("4. Delete File")
+        print("5. File Information")
+        print("6. Back to Main Menu")
+
+        ch = input("Enter Your Choice : ")
+
+        match ch:
+
+            case "1":
+                create_file()
+
+            case "2":
+                read_file()
+
+            case "3":
+                append_file()
+
+            case "4":
+                delete_file()
+
+            case "5":
+                file_info()
+
+            case "6":
+                break
+
+            case _:
+                print("Invalid Choice")
+
+
+# ---------------- MODULE EXPLORER ----------------
+
+def explore_module():
+
+    while True:
+
+        print("\nExplore Module Attributes :")
+        print("1. math")
+        print("2. random")
+        print("3. datetime")
+        print("4. uuid")
+        print("5. os")
+        print("6. Back to Main Menu")
+
+        ch = input("Enter Your   Choice : ")
+
+        match ch:
+
+            case "1":
+                print(dir(math))
+
+            case "2":
+                print(dir(random))
+
+            case "3":
+                print(dir(datetime))
+
+            case "4":
+                print(dir(uuid))
+
+            case "5":
+                print(dir(os))
+
+            case "6":
+                break
+
+            case _:
+                print("Invalid Choice")
+
+
+# ---------------- MAIN MENU ----------------
+
+def main():
+
+    while True:
+
+        print("\n======================================")
+        print("   Welcome To Multi Utility Toolkit  ")
+        print("======================================")
+        print("Choose an option:")
+        print("1. Datetime Operations")
+        print("2. Mathematical Operations")
+        print("3. Random Data Generation")
+        print("4. Generate Unique Identifiers (UUID)")
+        print("5. File Operations (Custom Module)")
+        print("6. Explorer Module Attributes (dir())")
+        print("7. Exit")
+
+        choice = input("\nEnter Your Choice : ")
+
+        match choice:
+
+            case "1":
+                datetime_menu()
+
+            case "2":
+                math_menu()
+
+            case "3":
+                random_menu()
+
+            case "4":
+                uuid_menu()
+
+            case "5":
+                file_menu()
+
+            case "6":
+                explore_module()
+
+            case "7":
+                print("\nThank You For Using Multi Utility Toolkit.")
+                break
+
+            case _:
+                print("Invalid Choice")
+
+
+if __name__ == "__main__":
+    main()
