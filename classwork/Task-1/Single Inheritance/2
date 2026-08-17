@@ -1,0 +1,21 @@
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+
+class Car(Vehicle):
+    def __init__(self, brand, model, fuel_type):
+        super().__init__(brand, model)
+        self.fuel_type = fuel_type
+
+    def display(self):
+        print("Brand:", self.brand)
+        print("Model:", self.model)
+        print("Fuel Type:", self.fuel_type)
+
+
+car = Car("Toyota", "Fortuner", "Diesel")
+
+print("\n2. Vehicle -> Car")
+car.display()
