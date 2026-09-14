@@ -1,0 +1,412 @@
+from datetime_module import datetime_menu
+from math_module import math_menu
+from random_module import random_menu
+from uuid_module import uuid_menu
+from file_module import file_menu
+from explorer import explore_module
+
+def display_current_datetime():
+
+    now = datetime.now()
+
+    print("\nCurrent Date and Time:", now.strftime("%Y-%m-%d %H:%M:%S"))
+
+def date_difference():
+
+    try:
+        date1 = input("\nEnter the first date (YYYY-MM-DD): ")
+        date2 = input("Enter the second date (YYYY-MM-DD): ")
+
+        d1 = datetime.strptime(date1, "%Y-%m-%d")
+        d2 = datetime.strptime(date2, "%Y-%m-%d")
+
+        diff = abs((d2 - d1).days)
+
+        print(f"Difference: {diff} days")
+
+    except ValueError:
+        print("Invalid date format!")
+
+def format_date():
+
+    try:
+        date = input("\nEnter date (YYYY-MM-DD): ")
+
+        d = datetime.strptime(date, "%Y-%m-%d")
+
+        print("\nChoose Format")
+        print("1. DD/MM/YYYY")
+        print("2. Month DD, YYYY")
+        print("3. Day Month Year")
+
+        choice = input("Enter your choice: ")
+
+        match choice:
+
+            case "1":
+                print(d.strftime("%d/%m/%Y"))
+
+            case "2":
+                print(d.strftime("%B %d, %Y"))
+
+            case "3":
+                print(d.strftime("%d %B %Y"))
+
+            case _:
+                print("Invalid Choice!")
+
+    except ValueError:
+        print("Invalid date!")
+
+def stopwatch():
+
+    input("\nPress ENTER to start Stopwatch...")
+
+    start = time.time()
+
+    input("Press ENTER to stop Stopwatch...")
+
+    end = time.time()
+
+    print(f"Elapsed Time: {end - start:.2f} seconds")
+
+def countdown():
+
+    try:
+        seconds = int(input("\nEnter countdown time (seconds): "))
+
+        while seconds > 0:
+
+            print(seconds)
+
+            time.sleep(1)
+
+            seconds -= 1
+
+        print("Time's Up!")
+
+    except ValueError:
+
+        print("Invalid Input!")
+
+def datetime_menu():
+ 
+    import math
+
+def factorial():
+
+    try:
+        num = int(input("\nEnter a number: "))
+
+        if num < 0:
+            print("Factorial does not exist for negative numbers.")
+
+        else:
+            print(f"Factorial: {math.factorial(num)}")
+
+    except ValueError:
+        print("Invalid Input!")
+
+def compound_interest():
+
+    try:
+        principal = float(input("\nEnter principal amount: "))
+        rate = float(input("Enter rate of interest (in %): "))
+        time = float(input("Enter time (in years): "))
+
+        amount = principal * ((1 + rate / 100) ** time)
+
+        print(f"Compound Interest: {amount:.2f}")
+
+    except ValueError:
+        print("Invalid Input!")
+
+def trigonometry():
+
+    try:
+        degree = float(input("\nEnter angle (in degrees): "))
+
+        radian = math.radians(degree)
+
+        print(f"\nSin({degree}) = {math.sin(radian):.4f}")
+        print(f"Cos({degree}) = {math.cos(radian):.4f}")
+        print(f"Tan({degree}) = {math.tan(radian):.4f}")
+
+    except ValueError:
+        print("Invalid Input!")
+
+def area():
+
+    while True:
+
+        print("\nArea of Geometric Shapes")
+        print("1. Circle")
+        print("2. Rectangle")
+        print("3. Triangle")
+        print("4. Back")
+
+        choice = input("\nEnter your choice: ")
+
+        match choice:
+
+            case "1":
+
+                try:
+                    radius = float(input("Enter radius: "))
+                    area = math.pi * radius * radius
+                    print(f"Area of Circle: {area:.2f}")
+
+                except ValueError:
+                    print("Invalid Input!")
+
+            case "2":
+
+                try:
+                    length = float(input("Enter length: "))
+                    width = float(input("Enter width: "))
+
+                    print(f"Area of Rectangle: {length * width:.2f}")
+
+                except ValueError:
+                    print("Invalid Input!")
+
+            case "3":
+
+                try:
+                    base = float(input("Enter base: "))
+                    height = float(input("Enter height: "))
+
+                    print(f"Area of Triangle: {(base * height) / 2:.2f}")
+
+                except ValueError:
+                    print("Invalid Input!")
+
+            case "4":
+                break
+
+            case _:
+                print("Invalid Choice!")
+
+def generate_random_number():
+
+    try:
+        start = int(input("\nEnter starting number: "))
+        end = int(input("Enter ending number: "))
+
+        print(f"\nGenerated Random Number: {random.randint(start, end)}")
+
+    except ValueError:
+        print("Invalid Input!")
+
+def generate_random_list():
+
+    try:
+        size = int(input("\nEnter list size: "))
+        start = int(input("Enter minimum value: "))
+        end = int(input("Enter maximum value: "))
+
+        numbers = [random.randint(start, end) for _ in range(size)]
+
+        print("\nGenerated Random List:")
+        print(numbers)
+
+    except ValueError:
+        print("Invalid Input!")
+
+def generate_password():
+
+    try:
+        length = int(input("\nEnter password length: "))
+
+        if length < 4:
+            print("Password length should be at least 4.")
+            return
+
+        characters = (
+            string.ascii_letters +
+            string.digits +
+            string.punctuation
+        )
+
+        password = "".join(random.choice(characters) for _ in range(length))
+
+        print(f"\nGenerated Password: {password}")
+
+    except ValueError:
+        print("Invalid Input!")
+
+def generate_otp():
+
+    otp = random.randint(100000, 999999)
+
+    print(f"\nGenerated OTP: {otp}")
+
+def generate_uuid1():
+    print("\nUUID Version 1:")
+    print(uuid.uuid1())
+
+def generate_uuid4():
+    print("\nUUID Version 4:")
+    print(uuid.uuid4())
+
+def generate_multiple_uuids():
+
+    try:
+        count = int(input("\nEnter how many UUIDs you want to generate: "))
+
+        if count <= 0:
+            print("Please enter a positive number.")
+            return
+
+        print(f"\nGenerating {count} UUID(s):\n")
+
+        for i in range(1, count + 1):
+            print(f"{i}. {uuid.uuid4()}")
+
+    except ValueError:
+        print("Invalid Input!")
+
+FILENAME = "sample.txt"
+
+def create_file():
+
+    if os.path.exists(FILENAME):
+        print("\nFile already exists.")
+
+    else:
+        with open(FILENAME, "w") as file:
+            file.write("Welcome to Multi-Utility Toolkit!\n")
+
+        print("\nFile created successfully.")
+
+def read_file():
+
+    if os.path.exists(FILENAME):
+
+        with open(FILENAME, "r") as file:
+
+            print("\n----- File Content -----")
+            print(file.read())
+
+    else:
+        print("\nFile not found.")
+
+def append_file():
+
+    if os.path.exists(FILENAME):
+
+        text = input("\nEnter text to append: ")
+
+        with open(FILENAME, "a") as file:
+
+            file.write(text + "\n")
+
+        print("\nText appended successfully.")
+
+    else:
+        print("\nFile not found.")
+
+def delete_file():
+
+    if os.path.exists(FILENAME):
+
+        os.remove(FILENAME)
+
+        print("\nFile deleted successfully.")
+
+    else:
+        print("\nFile not found.")
+
+def file_info():
+
+    if os.path.exists(FILENAME):
+
+        print("\n----- File Information -----")
+        print("File Name :", FILENAME)
+        print("File Size :", os.path.getsize(FILENAME), "bytes")
+        print("Absolute Path :", os.path.abspath(FILENAME))
+
+    else:
+        print("\nFile not found.")
+
+def file_menu():
+
+    while True:
+
+        print("\n==============================")
+        print("Welcome to Multi-Utility Toolkit")
+        print("==============================")
+        print("Choose an option:")
+        print("1. Datetime and Time Operations")
+        print("2. Mathematical Operations")
+        print("3. Random Data Generation")
+        print("4. Generate Unique Identifiers (UUID)")
+        print("5. File Operations (Custom Module)")
+        print("6. Explore Module Attributes (dir())")
+        print("7. Exit")
+
+        choice = input("\nEnter your choice: ")
+
+        match choice:
+
+            case "1":
+                datetime_menu()
+                display_current_datetime()
+                factorial()
+                generate_random_number()
+                generate_uuid1()
+                create_file()
+                print("\nAttributes of math module:\n")
+                print(dir(math))
+
+            case "2":
+                math_menu()
+                date_difference()
+                compound_interest()
+                generate_random_list()
+                generate_uuid4()
+                read_file()
+                print("\nAttributes of random module:\n")
+                print(dir(random))
+
+            case "3":
+                random_menu()
+                format_date()
+                trigonometry()
+                generate_password()
+                generate_multiple_uuids()
+                append_file()
+                print("\nAttributes of datetime module:\n")
+                print(dir(datetime))
+
+            case "4":
+                uuid_menu()
+                stopwatch()
+                area()
+                generate_otp()
+                delete_file()
+                print("\nAttributes of uuid module:\n")
+                print(dir(uuid))
+
+            case "5":
+                file_menu()
+                countdown()
+                file_info()
+                print("\nAttributes of os module:\n")
+                print(dir(os))
+
+            case "6":
+                explore_module()
+
+            case "7":
+                print("\n==============================")
+                print("Thank you for using the Multi-Utility Toolkit!")
+                print("==============================")
+                break
+
+            case _:
+                print("Invalid Choice!")
+
+
+if __name__ == "__main__":
+    main()
