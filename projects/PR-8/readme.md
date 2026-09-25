@@ -38,29 +38,49 @@ Install NumPy using:
 
 ```bash
 pip install numpy
+```
 
-## Output Screenshots
+How to Run
 
-### 1. Main Menu
+Run the following command in the terminal:
 
-<img src="screenshots/SS-1.png" width="700">
+python Analyzer.py
+Main Menu
 
-### 2. Array Creation
+The program provides the following options:
 
-<img src="screenshots/SS-2.png" width="700">
-
-### 3. Indexing and Slicing
-
-<img src="screenshots/SS-3.png" width="700">
-
-### 4. Mathematical Operations
-
-<img src="screenshots/SS-4.png" width="700">
-
-### 5. Combine and Split Arrays
-
-<img src="screenshots/SS-5.png" width="700">
-
-### 6. Search, Sort and Filter
-
-<img src="screenshots/SS-6.png" width="700">
+Create a Numpy Array
+Array Indexing and Slicing
+Perform Mathematical Operations
+Combine or Split Arrays
+Search, Sort, or Filter Arrays
+Compute Aggregates and Statistics
+Exit
+Technologies Used
+Python
+NumPy
+Project Structure
+PR-8
+│
+├── Analyzer.py
+├── readme.md
+└── screenshort
+    ├── SS-1.png
+    ├── SS-2.png
+    ├── SS-3.png
+    ├── SS-4.png
+    ├── SS-5.png
+    └── SS-6.png
+Output Screenshots
+1. Main Menu
+<img src="screenshort/SS-1.png" width="700">
+2. Array Creation
+<img src="screenshort/SS-2.png" width="700">
+3. Indexing and Slicing
+<img src="screenshort/SS-3.png" width="700">
+4. Mathematical Operations
+<img src="screenshort/SS-4.png" width="700">
+5. Combine and Split Arrays
+<img src="screenshort/SS-5.png" width="700">
+6. Search, Sort and Filter
+<img src="screenshort/SS-6.png" width="700">
