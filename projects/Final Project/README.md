@@ -104,16 +104,16 @@ Displays correlation coefficients between numeric variables to help identify pos
 ## 📸 Output Screenshot
 
 ### 1. Output 1
-![Output 1](screenshot/output.1.png)
+![output 1](screenshot/output.1.png)
 
 ### 2. Output 2
-![Output 2](screenshot/output.2.png)
+![output 2](screenshot/output.2.png)
 
 ### 3. Output 3
-![Output 3](screenshot/output.3.png)
+![output 3](screenshot/output.3.png)
 
 ### 4. Output 4
-![Output 4](screenshot/output.4.png)
+![output 4](screenshot/output.4.png)
 
 ## 📁 Project Structure
 
