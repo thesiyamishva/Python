@@ -127,7 +127,7 @@ Final Project/
 ├── visualizations.py
 ├── README.md
 │
-└── screenshot/
+screenshot/
     ├── output.1.png
     ├── output.2.png
     ├── output.3.png
