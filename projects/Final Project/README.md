@@ -101,7 +101,7 @@ Uses a box plot to summarize the distribution of happiness scores and highlight 
 
 Displays correlation coefficients between numeric variables to help identify positive and negative relationships.
 
-## 📸 Output Screenshots
+## 📸 Output Screenshot
 
 ### 1. Output 1
 
